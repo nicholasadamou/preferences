@@ -29,4 +29,4 @@ It should take less than a minute to install.
 
 ## License
 
-The code is available under the [Apache license](LICENSE).
+The code is available under the [MIT license](LICENSE).
