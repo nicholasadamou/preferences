@@ -4,7 +4,7 @@ preferences is a script - written in pure bash - to set up a *Debian* Linux comp
 
 It can run multiple times on the same machine safely.
 
-[Requirements](#requirements) / [Install](#install) / [License](license)
+[Requirements](#requirements) / [Install](#install) / [License](#license)
 
 Requirements
 ------------
