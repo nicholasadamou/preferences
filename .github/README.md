@@ -4,7 +4,7 @@ preferences is a script - written in pure bash - to set up a *Debian* Linux comp
 
 It can run multiple times on the same machine safely.
 
-[Requirements](https://github.com/nicholasadamou/preferences/blob/debian/README.md#requirements) / [Install](https://github.com/nicholasadamou/preferences/blob/debian/README.md#install) / [License](https://github.com/nicholasadamou/preferences/blob/debian/README.md#license)
+[Requirements](#requirements) / [Install](#install) / [License](license)
 
 Requirements
 ------------
@@ -22,6 +22,7 @@ source <(curl -s "https://github.com/nicholasadamou/preferences/raw/debian/prefe
 
 It should take less than a minute to install.
 
-## License
+License
+-------
 
 The code is available under the [MIT license](LICENSE).
