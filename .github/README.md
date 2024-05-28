@@ -4,7 +4,7 @@ preferences is a script - written in pure bash - to set up a macOS computer with
 
 It can run multiple times on the same machine safely.
 
-[Requirements](https://github.com/dotbrains/preferences#requirements) / [Install](https://github.com/dotbrains/preferences#install) / [License](https://github.com/dotbrains/preferences#license)
+[Requirements](#requirements) / [Install](#install) / [License](#license)
 
 Requirements
 ------------
@@ -22,11 +22,12 @@ Install
 Download, review, then execute the script:
 
 ```
-source /dev/stdin <<<"$(curl -s "https://raw.githubusercontent.com/dotbrains/preferences/master/preferences.sh")"
+source /dev/stdin <<<"$(curl -s "https://github.com/nicholasadamou/preferences/raw/master/preferences.sh")"
 ```
 
 It should take less than a minute to install.
 
-## License
+License
+-------
 
 The code is available under the [MIT license](LICENSE).
