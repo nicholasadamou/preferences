@@ -1,7 +1,7 @@
 #!/usr/bin/osascript
 
-tell application "iTerm2"
-    
+tell application "iTerm"
+
     set themeName to "Nord"
     set appName to "iTerm2"
 
@@ -18,26 +18,28 @@ tell application "iTerm2"
     set themeFilePath to themesPath & "/" & themeName & ".itermcolors"
 
     -- Print the theme file path for debugging purposes
-    display dialog "Theme file path: " & themeFilePath
+    # display dialog "Theme file path: " & themeFilePath
 
-    (* Verify the theme file exists *)
+    -- Verify the theme file exists
     do shell script "if [ ! -f \"" & themeFilePath & "\" ]; then echo \"Theme file not found\"; exit 1; fi"
 
-    (* Open the custom theme. This assumes that the theme file is in a 'themes' folder
-       relative to the current path. Adjust the path as necessary. *)
+    -- Open the custom theme
     do shell script "open '" & themeFilePath & "'"
 
-    (* Wait a little bit to ensure that the custom theme is added.
-       Adjust the delay as necessary. *)
+    -- Wait a little bit to ensure that the custom theme is added
     delay 1
 
-    (* Iterate over all open windows and their tabs to apply the theme. *)
+    -- Iterate over all open windows and their tabs to apply the theme
     repeat with aWindow in windows
         repeat with aTab in tabs of aWindow
             repeat with aSession in sessions of aTab
                 tell aSession
-                    (* Set the color preset to the custom theme. *)
-                    set color preset to themeName
+                    -- Set the color preset to the custom theme
+                    try
+                        set color preset to themeName
+                    on error errMsg number errNum
+                        display dialog "Error " & errNum & ": " & errMsg
+                    end try
                 end tell
             end repeat
         end repeat

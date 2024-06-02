@@ -25,7 +25,7 @@ tell application "Terminal"
     set themeFilePath to themesPath & "/" & themeName & ".terminal"
 
     -- Print the theme file path for debugging purposes
-    display dialog "Theme file path: " & themeFilePath
+    # display dialog "Theme file path: " & themeFilePath
 
     (* Verify the theme file exists *)
     do shell script "if [ ! -f \"" & themeFilePath & "\" ]; then echo \"Theme file not found\"; exit 1; fi"
