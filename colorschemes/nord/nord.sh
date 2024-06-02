@@ -15,7 +15,9 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    fish -c "printf \"y\n\" | fish_config theme save \"Nord\""
+    if cmd_exists "fish"; then
+        fish -c "printf \"y\n\" | fish_config theme save \"Nord\""
+    fi
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
