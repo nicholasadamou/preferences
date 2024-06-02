@@ -9,6 +9,17 @@ declare current_dir &&
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+readonly SMU_PATH="$HOME/set-me-up"
+
+# Get the absolute path of the dotfiles directory.
+# This is only for aesthetic reasons to have an absolute symlink path instead of a relative one
+# <path-to-smu>/dotfiles/somedotfile vs <path-to-smu>/dotfiles/base/../somedotfile
+readonly dotfiles="${SMU_PATH}/dotfiles"
+
+readonly preferences="${dotfiles}/modules/macos/preferences"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 main() {
 
     brew_bundle_install -f "brewfile"
@@ -27,17 +38,11 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Nord for iTerm2 on MacOS
-
-    ./apps/iterm2/set_iterm2_theme.applescript
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     # Set the desktop background to the Nord wallpaper
 
     # Check if the `wallpaper` command exists
     if cmd_exists "wallpaper"; then
-        wallpaper set "${current_dir}/wallpapers/magma.jpg"
+        wallpaper set "${preferences}/system/wallpapers/magma.jpg"
     fi
 
 }
