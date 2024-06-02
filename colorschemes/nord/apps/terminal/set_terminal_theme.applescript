@@ -7,6 +7,7 @@ tell application "Terminal"
     local windowID
 
     set themeName to "Nord"
+    set appName to "Terminal"
     
     -- Define the paths to the custom theme file
     set homePath to POSIX path of (path to home folder)
@@ -14,7 +15,10 @@ tell application "Terminal"
     set dotfilesPath to setMeUpPath & "/dotfiles"
     set modulesPath to dotfilesPath & "/modules"
     set preferencesPath to modulesPath & "/macos/preferences"
-    set themeFilePath to preferencesPath & "/colorschemes/nord/themes/" & themeName & ".terminal"
+    set colorschemesPath to preferencesPath & "/colorschemes"
+    set nordPath to colorschemesPath & "/nord"
+    set themesPath to nordPath & "/apps/themes"
+    set themeFilePath to themesPath & "/" & themeName & ".terminal"
 
     (* Verify the theme file exists *)
     do shell script "if [ ! -f \"" & themeFilePath & "\" ]; then echo \"Theme file not found\"; exit 1; fi"
