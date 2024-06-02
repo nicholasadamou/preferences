@@ -39,18 +39,32 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0.1
 # Avoid Creating .DS_Store Files on Network Volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Function to add or update PlistBuddy entries
+add_or_update_plist_entry() {
+    local key=$1
+    local type=$2
+    local value=$3
+    local plist=$4
+
+    /usr/libexec/PlistBuddy -c "Add $key $type $value" "$plist" 2>/dev/null ||
+        /usr/libexec/PlistBuddy -c "Set $key $value" "$plist"
+}
+
+plist=~/Library/Preferences/com.apple.finder.plist
+
 # Enable Snap-to-Grid for Icons
-# The following commands use PlistBuddy to modify Finder's preferences file directly.
-# They set icon arrangement to a grid layout on the desktop and in other icon views.
-/usr/libexec/PlistBuddy -c "Add :DesktopViewSettings:IconViewSettings:arrangeBy string grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Add :FK_StandardViewSettings:IconViewSettings:arrangeBy string grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Add :StandardViewSettings:IconViewSettings:arrangeBy string grid" ~/Library/Preferences/com.apple.finder.plist
+add_or_update_plist_entry ":DesktopViewSettings:IconViewSettings:arrangeBy" "string" "grid" "$plist"
+add_or_update_plist_entry ":FK_StandardViewSettings:IconViewSettings:arrangeBy" "string" "grid" "$plist"
+add_or_update_plist_entry ":StandardViewSettings:IconViewSettings:arrangeBy" "string" "grid" "$plist"
 
 # Set the Size of Icons
-# These commands set the icon size to 64x64 pixels on the desktop and in other icon views.
-/usr/libexec/PlistBuddy -c "Add :DesktopViewSettings:IconViewSettings:iconSize integer 64" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Add :FK_StandardViewSettings:IconViewSettings:iconSize integer 64" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Add :StandardViewSettings:IconViewSettings:iconSize integer 64" ~/Library/Preferences/com.apple.finder.plist
+add_or_update_plist_entry ":DesktopViewSettings:IconViewSettings:iconSize" "integer" "64" "$plist"
+add_or_update_plist_entry ":FK_StandardViewSettings:IconViewSettings:iconSize" "integer" "64" "$plist"
+add_or_update_plist_entry ":StandardViewSettings:IconViewSettings:iconSize" "integer" "64" "$plist"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Use Column View in All Finder Windows by Default
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
