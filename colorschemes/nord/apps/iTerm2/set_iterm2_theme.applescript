@@ -4,9 +4,20 @@ tell application "iTerm2"
     
     set themeName to "Nord"
 
+    -- Define the paths to the custom theme file
+    set homePath to POSIX path of (path to home folder)
+    set setMeUpPath to homePath & "set-me-up"
+    set dotfilesPath to setMeUpPath & "/dotfiles"
+    set modulesPath to dotfilesPath & "/modules"
+    set preferencesPath to modulesPath & "/macos/preferences"
+    set themeFilePath to preferencesPath & "/colorschemes/nord/themes/" & themeName & ".itermcolors"
+
+    (* Verify the theme file exists *)
+    do shell script "if [ ! -f \"" & themeFilePath & "\" ]; then echo \"Theme file not found\"; exit 1; fi"
+
     (* Open the custom theme. This assumes that the theme file is in a 'themes' folder
        relative to the current path. Adjust the path as necessary. *)
-    do shell script "open 'themes/" & themeName & ".itermcolors'"
+    do shell script "open '" & themeFilePath & "'"
 
     (* Wait a little bit to ensure that the custom theme is added.
        Adjust the delay as necessary. *)

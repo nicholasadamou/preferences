@@ -7,6 +7,17 @@ tell application "Terminal"
     local windowID
 
     set themeName to "Nord"
+    
+    -- Define the paths to the custom theme file
+    set homePath to POSIX path of (path to home folder)
+    set setMeUpPath to homePath & "set-me-up"
+    set dotfilesPath to setMeUpPath & "/dotfiles"
+    set modulesPath to dotfilesPath & "/modules"
+    set preferencesPath to modulesPath & "/macos/preferences"
+    set themeFilePath to preferencesPath & "/colorschemes/nord/themes/" & themeName & ".terminal"
+
+    (* Verify the theme file exists *)
+    do shell script "if [ ! -f \"" & themeFilePath & "\" ]; then echo \"Theme file not found\"; exit 1; fi"
 
     (* Store the IDs of all the open terminal windows. *)
     set initialOpenedWindows to id of every window
@@ -14,7 +25,7 @@ tell application "Terminal"
     (* Open the custom theme so that it gets added to the list
        of available terminal themes (note: this will open two
        additional terminal windows). *)
-    do shell script "open 'themes/" & themeName & ".terminal'"
+    do shell script "open '" & themeFilePath & "'"
 
     (* Wait a little bit to ensure that the custom theme is added. *)
     delay 1
