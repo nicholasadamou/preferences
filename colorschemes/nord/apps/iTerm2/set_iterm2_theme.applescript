@@ -13,8 +13,12 @@ tell application "iTerm2"
     set preferencesPath to modulesPath & "/macos/preferences"
     set colorschemesPath to preferencesPath & "/colorschemes"
     set nordPath to colorschemesPath & "/nord"
-    set themesPath to nordPath & "/apps/themes"
+    set itermPath to nordPath & "/apps/iterm2"
+    set themesPath to itermPath & "/themes"
     set themeFilePath to themesPath & "/" & themeName & ".itermcolors"
+
+    -- Print the theme file path for debugging purposes
+    display dialog "Theme file path: " & themeFilePath
 
     (* Verify the theme file exists *)
     do shell script "if [ ! -f \"" & themeFilePath & "\" ]; then echo \"Theme file not found\"; exit 1; fi"

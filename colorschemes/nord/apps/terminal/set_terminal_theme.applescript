@@ -9,6 +9,9 @@ tell application "Terminal"
     set themeName to "Nord"
     set appName to "Terminal"
     
+    -- Convert appName to lowercase
+    set appNameLowercase to do shell script "echo " & appName & " | tr '[:upper:]' '[:lower:]'"
+
     -- Define the paths to the custom theme file
     set homePath to POSIX path of (path to home folder)
     set setMeUpPath to homePath & "set-me-up"
@@ -17,8 +20,12 @@ tell application "Terminal"
     set preferencesPath to modulesPath & "/macos/preferences"
     set colorschemesPath to preferencesPath & "/colorschemes"
     set nordPath to colorschemesPath & "/nord"
-    set themesPath to nordPath & "/apps/themes"
+    set terminalPath to nordPath & "/apps/" & appNameLowercase
+    set themesPath to terminalPath & "/themes"
     set themeFilePath to themesPath & "/" & themeName & ".terminal"
+
+    -- Print the theme file path for debugging purposes
+    display dialog "Theme file path: " & themeFilePath
 
     (* Verify the theme file exists *)
     do shell script "if [ ! -f \"" & themeFilePath & "\" ]; then echo \"Theme file not found\"; exit 1; fi"
