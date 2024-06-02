@@ -8,4 +8,10 @@ ask_for_sudo
 
 # Use Touch ID to authenticate sudo commands
 # https://apple.stackexchange.com/a/466029
-sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
+# Check if the line is already uncommented in /etc/pam.d/sudo_local
+if ! grep -q "^auth" /etc/pam.d/sudo_local; then
+    sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+else
+    echo "Touch ID authentication for sudo is already enabled."
+fi
