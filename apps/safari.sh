@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Modify Various Settings for Safari Browser:
-defaults write com.apple.Safari UniversalSearchEnabled -bool false \
-    && defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+defaults write com.apple.Safari UniversalSearchEnabled -bool false &&
+    defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 # Disable Universal Search and Suppress Search Suggestions in Safari.
 # UniversalSearchEnabled - bool false: Disables the feature that integrates search suggestions, bookmarks, and browsing history in the Smart Search field.
 # SuppressSearchSuggestions - bool true: Prevents Safari from showing search suggestions in the search and address bar.
@@ -19,9 +19,9 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Enable Backspace Key to Navigate Back in Safari.
 # Allows the use of the backspace key (or delete key on some keyboards) to navigate to the previous page.
 
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true && \
-		defaults write com.apple.Safari IncludeDevelopMenu -bool true && \
-		defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true &&
+    defaults write com.apple.Safari IncludeDevelopMenu -bool true &&
+    defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 # Enable Safari's Developer Menu and Developer Extras.
 # Activates various developer options in Safari, including the Developer menu in the menu bar.
 
@@ -45,8 +45,8 @@ defaults write com.apple.Safari ShowSidebarInTopSites -bool false
 # Disable Sidebar in the Top Sites View.
 # Prevents the sidebar from appearing in the Top Sites view.
 
-defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true \
-    && defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
+defaults write com.apple.Safari WebKitTabToLinksPreferenceKey -bool true &&
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true
 # Enable Tab Key to Navigate Links in Web Pages.
 # Allows using the Tab key to jump between links on a webpage.
 
@@ -62,10 +62,10 @@ defaults write com.apple.Safari WebKitDeveloperExtras -bool true
 # Globally Enable WebKit Developer Extras.
 # Activates developer options across all WebKit-based applications.
 
-defaults write com.apple.Safari AutoFillFromAddressBook -bool false \
-    && defaults write com.apple.Safari AutoFillPasswords -bool false \
-    && defaults write com.apple.Safari AutoFillCreditCardData -bool false \
-    && defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false &&
+    defaults write com.apple.Safari AutoFillPasswords -bool false &&
+    defaults write com.apple.Safari AutoFillCreditCardData -bool false &&
+    defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
 # Disable Various AutoFill Features in Safari.
 # Turns off AutoFill for the address book, passwords, credit card data, and other forms.
 
@@ -81,18 +81,18 @@ defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 # Enable Fraudulent Website Warnings in Safari.
 # Turns on warnings for potentially fraudulent or malicious websites.
 
-defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false \
-    && defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
+defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false &&
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaScriptCanOpenWindowsAutomatically -bool false
 # Disable JavaScript from Opening Windows Automatically.
 # Prevents JavaScript from opening new windows or tabs without user interaction.
 
-defaults write com.apple.Safari WebKitJavaEnabled -bool false \
-    && defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
+defaults write com.apple.Safari WebKitJavaEnabled -bool false &&
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
 # Disable Java in Safari.
 # Turns off Java support in Safari for security and performance reasons.
 
-defaults write com.apple.Safari WebKitPluginsEnabled -bool false \
-    && defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
+defaults write com.apple.Safari WebKitPluginsEnabled -bool false &&
+    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false
 # Disable All Plugins in Safari.
 # Prevents plugins (like Flash) from running in Safari, enhancing security and performance.
 
@@ -100,4 +100,4 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 # Enable Automatic Updates for Safari Extensions.
 # Configures Safari to automatically update installed extensions.
 
-killall "Safari" &> /dev/null
+killall "Safari" &>/dev/null
