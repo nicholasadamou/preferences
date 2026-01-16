@@ -26,6 +26,12 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    if brew info wallpaper &>/dev/null; then
+        wallpaper set "${PWD}/wallpapers/nord-dark-space-exploration.png"
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     if cmd_exists "fish"; then
         fish -c "printf \"y\n\" | fish_config theme save \"Nord\""
     fi

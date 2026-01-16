@@ -11,6 +11,16 @@ declare current_dir &&
 
 main() {
 
+    brew_bundle_install -f "brewfile"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if brew info wallpaper &>/dev/null; then
+        wallpaper set "${PWD}/wallpapers/black-hole.png"
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     if cmd_exists "fish"; then
         fish -c "fisher install catppuccin/fish"
         fish -c "fish_config theme save \"Catppuccin Macchiato\""

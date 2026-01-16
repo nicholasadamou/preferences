@@ -68,12 +68,7 @@ main() {
     ./apps/textedit.sh
 
     # Third-party Apps
-    ./apps/iTerm2/iterm2.sh
-    # I no longer use Alfred or Transmission
-    # ./apps/alfred/alfred.sh
-    # ./apps/transmission.sh
-    ./apps/chrome.sh
-    ./apps/firefox.sh
+    # TODO: Add third-party apps here
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -93,13 +88,16 @@ main() {
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    # Colorschems
+    # Colorschemes
+
+    # Gruvbox
+    ./colorschemes/gruvbox/gruvbox.sh
 
     # Nord
-    ./colorschemes/nord/nord.sh
+    # ./colorschemes/nord/nord.sh
 
     # Catppuccin
-    # ./colorschemes/catppuccino/catppuccino.sh
+    # ./colorschemes/catppuccin/catppuccin.sh
 
 }
 

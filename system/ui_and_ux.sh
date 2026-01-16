@@ -1,12 +1,6 @@
 #!/bin/bash
 
-declare -r DESKTOP_WALLPAPER_PATH="${PWD}/system/wallpapers/magma.jpg"
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-if brew info wallpaper &>/dev/null; then
-    wallpaper set "$DESKTOP_WALLPAPER_PATH"
-fi
 
 # Customize System Preferences and Behaviors in macOS:
 
@@ -64,6 +58,7 @@ done &&
         '/System/Library/CoreServices/Menu Extras/AirPort.menu' \
         '/System/Library/CoreServices/Menu Extras/Battery.menu' \
         '/System/Library/CoreServices/Menu Extras/Clock.menu'
+
 # Customizes the items in the menu bar. It removes TimeMachine and Volume menus and adds Bluetooth, Airport (Wi-Fi), Battery, and Clock menus. This loop goes through all the domain files for the system UI server in the user's preferences.
 
 killall "SystemUIServer" &>/dev/null
