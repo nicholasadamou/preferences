@@ -33,9 +33,9 @@ main() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Colorschemes
-    ../colorschemes/gruvbox.sh
-    # ../colorschemes/nord.sh
-    # ../colorschemes/catppuccin.sh
+    bash ../colorschemes/gruvbox.sh
+    # bash ../colorschemes/nord.sh
+    # bash ../colorschemes/catppuccin.sh
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
