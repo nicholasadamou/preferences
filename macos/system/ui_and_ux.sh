@@ -35,7 +35,8 @@ model=$(system_profiler SPHardwareDataType | grep "Model Name" | awk -F": " '{pr
 
 # Simplify host name by removing special characters
 HOST_NAME="Nicholas-$model"
-ESCAPED_HOST_NAME=$(echo "$HOST_NAME" | sed "s/[^a-zA-Z0-9-]//g")
+# Remove non-alphanumeric characters (except hyphens)
+ESCAPED_HOST_NAME="${HOST_NAME//[^a-zA-Z0-9-]/}"
 
 # Set the system's network names for various protocols to $HOST_NAME
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "${ESCAPED_HOST_NAME}" &&
