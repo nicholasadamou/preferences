@@ -1,0 +1,68 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+      fail-fast: false
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set TERM variable
+        run: echo "TERM=xterm-256color" >> $GITHUB_ENV
+
+      - name: Install shellcheck (macOS)
+        if: runner.os == 'macOS'
+        run: brew install shellcheck
+
+      - name: Install shellcheck (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      - name: Set execute permissions
+        run: chmod +x ./tests/main.sh
+
+      - name: Run shellcheck tests
+        run: ./tests/main.sh
+
+      - name: Display bash version
+        run: bash --version
+
+      - name: Verify preferences.sh syntax
+        run: bash -n preferences.sh && echo "✓ preferences.sh syntax valid"
+
+      - name: Verify OS-specific scripts syntax
+        run: |
+          for script in macos/*.sh arch/*.sh debian/*.sh universal/*.sh; do
+            if [ -f "$script" ]; then
+              bash -n "$script" && echo "✓ $script syntax valid"
+            fi
+          done
+
+      - name: Verify macOS app scripts syntax
+        run: |
+          if [ -d "macos/apps" ]; then
+            for script in macos/apps/*.sh macos/apps/*/*.sh; do
+              if [ -f "$script" ]; then
+                bash -n "$script" && echo "✓ $script syntax valid"
+              fi
+            done
+          fi
+
+      - name: Verify macOS system scripts syntax
+        run: |
+          if [ -d "macos/system" ]; then
+            for script in macos/system/*.sh; do
+              if [ -f "$script" ]; then
+                bash -n "$script" && echo "✓ $script syntax valid"
+              fi
+            done
+          fi
