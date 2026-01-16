@@ -40,10 +40,6 @@ main() {
 
     ask_for_sudo
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    brew_bundle_install -f "brewfile"
-
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Close any open `System Preferences` panes in order to
@@ -85,19 +81,6 @@ main() {
     ./system/language_and_region.sh
     ./system/ui_and_ux.sh
     ./system/security.sh
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Colorschemes
-
-    # Gruvbox
-    ./colorschemes/gruvbox/gruvbox.sh
-
-    # Nord
-    # ./colorschemes/nord/nord.sh
-
-    # Catppuccin
-    # ./colorschemes/catppuccin/catppuccin.sh
 
 }
 
