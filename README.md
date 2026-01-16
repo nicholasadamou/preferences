@@ -1,5 +1,8 @@
 # 'preferences' Module ⚙️
 
+[![Lint](https://github.com/dotbrains/preferences-module/actions/workflows/lint.yml/badge.svg)](https://github.com/dotbrains/preferences-module/actions/workflows/lint.yml)
+[![Tests](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml/badge.svg)](https://github.com/dotbrains/preferences-module/actions/workflows/tests.yml)
+
 Multi-OS system preferences configuration with support for macOS, Arch Linux, and Debian.
 
 ## Structure
