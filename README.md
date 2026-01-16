@@ -139,7 +139,8 @@ bash universal/universal.sh
 
 ## Requirements
 
-This script requires the [dotbrains/utilities](https://github.com/dotbrains/utilities) functions for OS detection and common operations.
+This script requires the [dotbrains/utilities](https://github.com/dotbrains/utilities) functions for OS detection and
+common operations.
 
 ## License
 
